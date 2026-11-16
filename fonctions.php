@@ -8,7 +8,7 @@ function getBadgeService ($cc):array{
 function filtrerUrgences (array $patients){
 
 }
-function getLibelleUrgence (){
+function getLibelleUrgence ($badge){
 
 }
 ?>

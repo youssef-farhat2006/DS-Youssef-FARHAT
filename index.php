@@ -22,7 +22,34 @@ $facture=0;
 foreach ($patients as $patient){
     $facture=calculerFacture ($TARIF_BASE_CONSULTATION,$patient["age"]);
     $badge=getBadgeService ($patient["cc"]);
-    
+    $niveau_u=getLibelleUrgence ($patient["nv"]);
 
 }
 ?>
+<div class="card">
+    <h2>
+            <?php echo $patient["nom"];
+            echo $patient["age"] ?>
+        </h2>
+
+        <p>
+            niveau d'urgence : <?php echo $patient["nv"]; ?>
+        </p>
+
+        <p>
+            facture estimee : <?php echo $facture; ?> TND
+        </p>
+</div>
+<?php
+$urgence=filtrerUrgences ( $patients);
+?>
+<h3>Recapitulatif</h3>
+<p>
+    Nombre total de patient : <?php echo count($patients); ?>
+</p>
+<h4>urgence absolues (ROUGE)</h4>
+<p>
+    <?php echo ($urgence) " - service :" ($patient["cc"])
+</p>
+</body>
+</html>
